@@ -1,0 +1,65 @@
+H violin is whack!
+M alt on play / stop button text when not connected to internet
+H rhythm instruments
+M bars missing on bass cleff (only when all notes are rests)
+M mute all
+M change things (volume) while playing
+
+===
+
+M adding new track doesn't count as dirty?  DIRTY state questionable. (on new song only?)
+M repeat section
+M play-along marker
+M adjust volume / mute while running
+M delete / copy / paste multiple notes
+M dotting a tie rest converts it to a note
+M mouse insert note
+M note insert mode
+M switch to BASS clef easily
+M draw only bass clef if only bass notes
+
+
+L not dirty after undo to origin
+L pause--Transport toggle() function?
+L sharps & flats are not in proper order to determine key
+L allows sharp & flat on same note
+L flats / sharps in proper order on accidentals area
+L move from track-to-track using ctrl-keys (shift arrow up down)
+L other time signatures
+L optimization: rebar from changed location only
+
+crescendo / decrescendo
+
+Regularly:
+=========
+WINDOWS TEST
+
+REARCHITECT / REDESIGN
+======================
+- invert notesequence and draw sequence?
+  keep things 'rebarred' and derived the toneutils playback from that model
+
+
+POLYFILL NEEDED on IE?
+
+Was added to index.js:
+
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function(searchString, position) {
+    position = position || 0;
+    return this.indexOf(searchString, position) === position;
+  };
+}
+
+
+HOW TO?
+
+In App.js InlineEdit:
+  - validate func needs to return false if not valid but should also updated errorMessage...
+    also, validation might want to involve an async action. How to resolve?
+
+In NoteSequence.test.js, how to replace rebar() function temporarily with test double (jest.fn())
+
+    // TODO: treble staff could be optional if the calcs for noteY
+    //  when there's only a bass staff are adjusted
+    // if (hasTrebleNotes(this.props.song, this.props.id)) { ... }
